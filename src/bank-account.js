@@ -23,8 +23,10 @@ export class BankAccount {
     return this.dinero;
   }
 
-  withdraw() {
-    throw new Error("Remove this statement and implement this function");
+  withdraw(num) {
+    let dinero=num;
+   this.dinero-=dinero;
+    return this.dinero;
   }
 
   get balance() {
