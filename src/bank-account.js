@@ -22,12 +22,14 @@ export class BankAccount {
   }
 
   deposit(num) {
+    if (!this.activo || num<0 ) throw new ValueError()
     let dinero=num;
    this.dinero+=dinero;
     return this.dinero;
   }
 
   withdraw(num) {
+    if (!this.activo || num>this.dinero || num<0) throw new ValueError()
     let dinero=num;
    this.dinero-=dinero;
     return this.dinero;
