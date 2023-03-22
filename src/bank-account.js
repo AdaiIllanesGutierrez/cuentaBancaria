@@ -6,15 +6,19 @@
 export class BankAccount {
 
   constructor(dinero) {
+   this.activo = false
    this.dinero=dinero;
   }
 
   open() {
+  if (this.activo) throw new ValueError()
+  this.activo= true
   this.dinero=0;
   }
 
   close() {
-    throw new Error("Remove this statement and implement this function");
+    if (this.activo) this.activo= false
+    else throw new ValueError()
   }
 
   deposit(num) {
@@ -30,7 +34,7 @@ export class BankAccount {
   }
 
   get balance() {
- 
+    if (!this.activo) throw new ValueError()
     return this.dinero;
   }
 }
